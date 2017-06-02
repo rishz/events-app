@@ -5,12 +5,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import dailysuvichar.eventsapp.R;
-import it.gmariotti.cardslib.library.cards.actions.BaseSupplementalAction;
 import it.gmariotti.cardslib.library.cards.material.MaterialLargeImageCard;
 import it.gmariotti.cardslib.library.internal.Card;
+import it.gmariotti.cardslib.library.view.CardViewNative;
 
 /**
  * Created by rishabhshukla on 02/06/17.
@@ -18,12 +18,18 @@ import it.gmariotti.cardslib.library.internal.Card;
 
 public class EventsVH extends RecyclerView.ViewHolder {
 
+    @BindView(R.id.card)
+    CardViewNative cardView;
+
     public EventsVH(View itemView) {
         super(itemView);
+
+        ButterKnife.bind(itemView);
+
     }
     
-    public void setImage(final Context context){
-        ArrayList<BaseSupplementalAction> actions = new ArrayList<BaseSupplementalAction>();
+    public void setCard(final Context context){
+//        ArrayList<BaseSupplementalAction> actions = new ArrayList<BaseSupplementalAction>();
 
         // Set supplemental actions
 //        TextSupplementalAction t1 = new TextSupplementalAction(context, R.id.text1);
@@ -47,7 +53,7 @@ public class EventsVH extends RecyclerView.ViewHolder {
         //Create a Card, set the title over the image and set the thumbnail
         MaterialLargeImageCard card =
                 MaterialLargeImageCard.with(context)
-                        .setTextOverImage("Italian Beaches")
+                        .setTextOverImage("Glimpse of the Sea")
                         .setTitle("This is my favorite local beach")
                         .setSubTitle("A wonderful place")
                         .useDrawableId(R.drawable.sea)
@@ -59,5 +65,7 @@ public class EventsVH extends RecyclerView.ViewHolder {
                 Toast.makeText(context," Click on ActionArea ",Toast.LENGTH_SHORT).show();
             }
         });
+
+        cardView.setCard(card);
     }
 }

@@ -18,6 +18,10 @@ public class Event {
     @NonNull
     String category;
 
+    public Event(@NonNull String title) {
+        this.title = title;
+    }
+
     public Event(@NonNull String title, @NonNull String description, @NonNull String photoUrl, @NonNull Integer likes, @NonNull String category) {
         this.title = title;
         this.description = description;

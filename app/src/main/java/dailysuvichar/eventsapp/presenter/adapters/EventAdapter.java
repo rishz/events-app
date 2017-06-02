@@ -36,7 +36,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventsVH> {
 
     @Override
     public void onBindViewHolder(EventsVH holder, int position) {
-
+        holder.setCard(context);
     }
 
     @Override
